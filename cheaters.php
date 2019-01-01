@@ -32,23 +32,23 @@
     			} elseif($openid->mode == "cancel") {
     				echo "User has cancelled authentication";
     			} else {
-          //login
+                  //login
     			if(!isset($_SESSION['TSteamAuth'])) {
     				$_SESSION['TSteamAuth'] = $openid->validate() ? $openid->identity : null;
     				$_SESSION['TSteamID64'] = str_replace("https://steamcommunity.com/openid/id/", "", $_SESSION['TSteamAuth']);
     				header("Location: cheaters");
     				}
     			}
-          //Logged in
+                  //Logged in
     			if(isset($_SESSION['TSteamAuth'])) {
     				$steam64 = str_replace("https://steamcommunity.com/openid/id/", "", $_SESSION['TSteamAuth']);
     				$url = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key={$_STEAMAPI}&steamids={$steam64}";
     				$json_object = file_get_contents($url);
-    				//Caching
+    				        //Caching
     				$fileLocation = "assets/cache/{$steam64}.json";
     				file_put_contents($fileLocation, $json_object);
 
-            //Getting User API information
+                    //Getting User API information
     				$json_decoded = json_decode($json_object);
     				foreach ($json_decoded->response->players as $player) {
     					$username = $player->personaname;
@@ -56,13 +56,13 @@
     					$login = "<div class='centerwrapper'><div class='square'><img src=$useravatar class='large'></img></div><div class='vert'><div class='spacer2'></div><p2><b>$username</b></p2><div id=\"login\"><a href=\"?logout\"><p3>Logout&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p3></a></div></div></div>";
     				}
     			}
-          //Logging out
+                  //Logging out
     			if(isset($_GET['logout'])) {
     				unset($_SESSION['TSteamAuth']);
     				unset($_SESSION['TSteamID64']);
     				header("Location: cheaters");
     			}
-          //echo User information OR steam logo
+                  //echo User information OR steam logo
     			echo $login;
     		} catch(ErrorException $e) {
     			echo $e->getMessage();
