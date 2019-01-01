@@ -15,7 +15,7 @@
     	  <?php
 
     		//STEAM LIGHTOPENID API
-        include "assets/lightopenid/openid.php";
+              include "assets/lightopenid/openid.php";
     		$_STEAMAPI = "***YourAPIKey***";
 
     		try {
