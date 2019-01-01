@@ -44,7 +44,7 @@
     				$steam64 = str_replace("https://steamcommunity.com/openid/id/", "", $_SESSION['TSteamAuth']);
     				$url = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key={$_STEAMAPI}&steamids={$steam64}";
     				$json_object = file_get_contents($url);
-    				            //Caching
+    				//Caching
     				$fileLocation = "assets/cache/{$steam64}.json";
     				file_put_contents($fileLocation, $json_object);
 
