@@ -53,20 +53,7 @@
     				foreach ($json_decoded->response->players as $player) {
     					$username = $player->personaname;
     					$useravatar = $player->avatarfull;
-    					$login = "<div class='centerwrapper'>
-                                      <div class='square'>
-      																	 <img src=$useravatar class='large'></img>
-      																</div>
-      																<div class='vert'>
-      																 	<div class='spacer2'></div>
-      																	<p2><b>$username</b></p2>
-      																	<div id=\"login\">
-      																		<a href=\"?logout\">
-      																			<p3>Logout&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p3>
-      																		</a>
-      																	</div>
-      																</div>
-                                    </div>";
+    					$login = "<div class='centerwrapper'><div class='square'><img src=$useravatar class='large'></img></div><div class='vert'><div class='spacer2'></div><p2><b>$username</b></p2><div id=\"login\"><a href=\"?logout\"><p3>Logout&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p3></a></div></div></div>";
     				}
     			}
           //Logging out
