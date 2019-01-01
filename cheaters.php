@@ -56,13 +56,13 @@
     					$login = "<div class='centerwrapper'><div class='square'><img src=$useravatar class='large'></img></div><div class='vert'><div class='spacer2'></div><p2><b>$username</b></p2><div id=\"login\"><a href=\"?logout\"><p3>Logout&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p3></a></div></div></div>";
     				}
     			}
-                        //Logging out
+                          //Logging out
     			if(isset($_GET['logout'])) {
     				unset($_SESSION['TSteamAuth']);
     				unset($_SESSION['TSteamID64']);
     				header("Location: cheaters");
     			}
-                        //echo User information OR steam logo
+                                //echo User information OR steam logo
     			echo $login;
     		} catch(ErrorException $e) {
     			echo $e->getMessage();
